@@ -1,2 +1,5 @@
 #directories
-./obj/*
+./obj
+
+#vim files
+*.swp
