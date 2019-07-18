@@ -1,8 +1,8 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage{geometry}
 \geometry{
     a4paper,
-    total={6in,9in}
+    total={6.5in,9in}
     }
 
 \usepackage{mathtext}
@@ -11,7 +11,6 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
-\usepackage{calligra}
 \usepackage{color}
 \usepackage{authblk}
 \usepackage{textcomp}
@@ -22,7 +21,6 @@
 \usepackage{colortbl}
 \usepackage{textcomp}
 \usepackage{tabularx}
-\usepackage{tabulary}
 \usepackage[colorlinks = true,
             linkcolor = blue,
             urlcolor  = blue,
@@ -270,16 +268,14 @@ To ensure that the algorithms meet the timing constraints imposed by the limited
 \begin{table}[H]
 \begin{center}
 \caption{Adjacency Algorithm}
-%\begin{tabular}{ |l|l|l|l|l|l| }
-\begin{tabulary}{\textwidth}{ |l|l|l|l|l|l| }
+\begin{tabular}{ |l|l|l|l|l|l| }
   \toprule
   \rowtitlestyle Sample & \textnumero\;of Evt. & \textnumero\;of APA & \textnumero\;of APA Windows & APA Data Time & Processing Time \\ 
   \toprowrule 
   Beam          & 945,500 & 12 & 11,346,000 & 424.72m & 592.97s   \\ \colhline %reduction:42.98
   Atmospherics  & 99,800  & 12 & 1,197,000  & 44.83m  & 16.26s    \\ \colhline %reduction:165.43
   Radiologicals & 103,000 & 1  & 103,000    & 3.85m   & 15.35s    \\ \colhline %reduction:15.03
-\end{tabulary}
-%\caption{Adjacency Algorithm}
+\end{tabular}
 \label{tab:bench_adj}
 \end{center}
 \end{table}
@@ -287,7 +283,7 @@ To ensure that the algorithms meet the timing constraints imposed by the limited
 \begin{table}[H]
 \begin{center}
 \caption{Clustering Algorithm}
-\begin{tabulary}{\linewidth}{ |l|l|l|l|l|l| }
+\begin{tabular}{ |l|l|l|l|l|l| }
   \toprule
   \rowtitlestyle Sample & \textnumero\;of Evt. & \textnumero\;of APA & \textnumero\;of APA Windows & APA Data Time & Processing Time \\ 
   \toprowrule 
@@ -295,7 +291,7 @@ To ensure that the algorithms meet the timing constraints imposed by the limited
   Atmospherics  & 99,800  & 12 & 1,197,600  & 44.83m   & 40.31s    \\ \colhline %reduction:66.55
   Radiologicals & 103,000 & 1  & 103,000    & 3.85m    & 51.26s    \\ \colhline %reduction:4.51
   %\bottomrule
-\end{tabulary}
+\end{tabular}
 %\caption{Clustering Algorithm}
 \label{tab:bench_clustering}
 \end{center}
