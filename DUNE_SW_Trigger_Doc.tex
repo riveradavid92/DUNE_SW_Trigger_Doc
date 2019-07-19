@@ -249,16 +249,6 @@ The following shows the trigger efficiency as a function of visible energy for t
     \label{fig:eff_atm_int}
 \end{figure}
 
-\subsubsection{Single Electron Trigger Efficiency}
-A 1-100 MeV, isotropic, electron sample without radiological backgrounds was generated to demonstrate the trigger efficiency for events resulting in daughter electrons of this energy range. The following results stand as a measure of the algorithms' handling of energy deposits from electrons, which inherently makes them a measure of the algorithms' handling of compact energy deposits.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[angle=270,width=0.65\textwidth]{UpdatedEff/SingleParticle/Electron_Efficiency_Comparison.pdf}
-    \caption{Efficiency to issue a candidate as a function of visible energy for simulated electrons without backgrounds for two methods of primitive generation, offline (red) and online (blue).}
-    \label{fig:eff_electron}
-\end{figure}
-
 \subsection{Algorithm Benchmarks}
 
 To ensure that the algorithms meet the timing constraints imposed by the limited buffer capabilities under normal streaming conditions for TPC data, the process for generating the trigger candidates, after being passed hit objects from an event, was timed. Tables~\ref{tab:bench_adj} and \ref{tab:bench_clustering} below are a summary of the average processing time for the various samples when executed on a single core process. 
@@ -307,5 +297,70 @@ Closer inspection of the events that led to efficiency loss suggest that these a
 Given that the radiological activity will be a constant sink of the allotted processing time, we can take the reduction factor for the candidate-production algorithms in the radiological sample as a baseline. This reduction factor is the ratio of APA Data Time to Processing Time i.e. 15.03 for the Adjacency-based algorithm vs. 4.51 for the clustering algorithm.  
 
 Comparison of the two different hit-grouping methods points towards Adjacency being the optimal option, due to its faster processing time, and no noticeable differences between the distributions for radiologicals. It is possible that Clustering may be more robust against pile-up and therefore necessary in the presence of increased radiological rates. 
+
+\section{Single Particle Trigger Efficiencies}
+The triggering efficiency for physics which is of interest for DUNE can be studied in a more general way, by determining the efficiencies for triggering on the various final state particles. This is especially important for understanding how well we can do at low energies physics. We expect that electrons and gammas are among the most common final state particles hence we start with those. 
+
+
+\subsection{Single Electron Trigger Efficiency}
+A 1-100 MeV, isotropic, electron sample without radiological backgrounds was generated to demonstrate the trigger efficiency for events resulting in daughter electrons at the low energy range. The following results stand as a measure of the algorithms' handling of energy deposits from electrons, which inherently makes them a measure of the algorithms' handling of compact energy deposits.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=270,width=0.65\textwidth]{UpdatedEff/SingleParticle/Electron_Efficiency_Comparison.pdf}
+    \caption{Efficiency to issue a candidate as a function of visible energy for simulated electrons without backgrounds for two methods of primitive generation, offline (red) and online (blue).}
+    \label{fig:eff_electron}
+\end{figure}
+
+\subsection{Single Gamma Trigger Efficiency}
+
+The gamma sample, like the electron sample, was generated with KE ranging between 1 and 100MeV. The efficiency curve is very similar as one would expect. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=270,width=0.65\textwidth]{UpdatedEff/SingleParticle/gamma_efficiency_2.pdf}
+    \caption{Efficiency to issue a candidate as a function of visible energy for simulated gammas without backgrounds.}
+    \label{fig:eff_gamma}
+\end{figure}
+
+\subsection{Single Muon Trigger Efficiency}
+
+Muons are a special case because as MIPs they can cross the entire detector; however at low energies they readily decay and the Michel electrons can deposit significant energy thust making it more difficult to quantify the efficiency of triggering on them at low visible energy. A similar sample of $\mu^+$ were produced with kinetic energy$\epsilon$[1,100]MeV but with the decay physics disabled in Geant such that these muons deposited their kinetic energy before coming to a stop in the fiducial volume. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=270,width=0.65\textwidth]{UpdatedEff/SingleParticle/muplus_efficiency_2.pdf}
+    \caption{Efficiency to issue a candidate as a function of visible energy for $\mu^+$.}
+    \label{fig:eff_muplus}
+\end{figure}
+
+We conclude that the 50\% efficiency, energy threshold is roughly 18MeV. 
+
+\subsection{Single Proton Trigger Efficiency}
+
+A sample of protons was generated for completeness, given that we are unlikely to need to trigger on low energy, single protons. 
+We expect very short, but high dq/dx tracks and thus our best handles on protons are the summed ADC metrics (TADC, WADC). 
+
+Note that the charged pions are very similar to muons both in mass and dE/dX, thus we expect that the efficiency curve should be similar as well. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=270,width=0.65\textwidth]{UpdatedEff/SingleParticle/proton_efficiency.pdf}
+    \caption{Efficiency to issue a candidate as a function of visible energy for simulated protons without backgrounds.}
+    \label{fig:eff_proton}
+\end{figure}
+
+Even at 100 MeV one can see that the efficiency is still asymptoting towards 100\%, thus it is more desirable to investigate multi-dimensional cuts to improve this efficiency. 
+
+
+\subsection{Comparison}
+
+Figure~\ref{fig:comparison} below overlays the four particle types under consideration.
+
+\begin{figure}
+    \centering
+    \includegraphics[angle=270,width=\textwidth]{UpdatedEff/SingleParticle//efficiency_comparison_mu_e_gamma_proton_2.pdf}
+    \label{fig:comparison}
+\end{figure}
 
 \end{document}
