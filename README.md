@@ -6,5 +6,6 @@
 
 # Compile Instructions
   `make` -- to compile output objects in (/obj) including the .pdf file
+  
   `make display` -- to compile and display the .pdf
 
